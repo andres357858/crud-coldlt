@@ -1,0 +1,129 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<div style="text-align: center">
+    <button class="btn btn-primary btn-xs" (click)="goToPage(['/registrarProducto']);">
+        <span>Registrar producto</span>
+    </button>
+</div>
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+        <th *ngIf="editar == true " class="text-center">
+            <form>
+                <fieldset>
+                    <tr>
+                        <th>
+                            <div class="form-group">
+                                <label for="codigo"><span class="req">* </span> Codigo:</label>
+                                <input required type="text" [(ngModel)]="edit.codigo" name="codigo" id="codigo"
+                                    class="form-control " maxlength="28" placeholder="Ingrese el codigo del producto" />
+                            </div>
+
+                        </th>
+                        <th>
+
+
+                            <div class="form-group">
+                                <label for="nombre"><span class="req">* </span> Nombre: </label>
+                                <input class="form-control" type="text" [(ngModel)]="edit.nombre" name="nombre"
+                                    id="nombre" required placeholder="Ingrese el nombre del producto" />
+
+                            </div>
+
+                        </th>
+                        <th>
+
+                            <div class="form-group">
+                                <label for="valor"><span class="req">* </span> Valor : </label>
+                                <input class="form-control" type="text" [(ngModel)]="edit.valor" name="valor" id="valor"
+                                    placeholder="Ingrese el valor del producto" required />
+
+                            </div>
+
+                        </th>
+
+                        <th>
+                            <div class="form-group">
+                                <label for="guardar"><span class="req"> </span>↓</label>
+                                <input class="btn btn-success" type="submit" name="submit_reg" value="Guardar"
+                                    (click)="guardarEdicion(edit)">
+                            </div>
+                        </th>
+
+                    </tr>
+
+                </fieldset>
+            </form>
+        </th>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos">
+                    <td>{{producto.id}}</td>
+                    <td>{{producto.codigo}}</td>
+                    <td>{{producto.nombre}}</td>
+                    <td>{{producto.valor}}</td>
+                    <td class="text-center"><button class="btn btn-danger btn-xs"
+                            (click)="deleteProducto(producto.id)"><span class="glyphicon glyphicon-remove"></span>
+                            Delete</button></td>
+                    <td class="text-center"><button class="btn btn-primary btn-xs" (click)="anadirItem(producto)"><span
+                                class="glyphicon glyphicon-plus"></span>
+                            Agregar</button></td>
+
+                    <td class="text-center"><button class="btn btn-primary btn-xs"
+                            (click)="editarProducto(producto)"><span class="glyphicon glyphicon-plus"></span>
+                            Editar</button></td>
+
+                </tr>
+            </tbody>
+        </table>
+
+
+        <table class="table table-striped custab">
+            <thead>
+                <div class="form-group">
+                    <label for="cliente"><span class="req">* </span> Nombre: </label>
+                    <input class="form-control" type="text" [(ngModel)]="cliente" name="cliente" id="cliente" required
+                        placeholder="Ingrese su nombre" />
+
+                </div>
+
+                <th *ngIf="facturar == true && cliente != '' " class="text-center"><button
+                        class="btn btn-primary btn-xs" (click)="enviarFactura(cliente)"><span
+                            class="glyphicon glyphicon-plus"></span>
+                        Facturar</button></th>
+                <tr>
+                    <th>Producto</th>
+                    <th>Valor</th>
+                    <th>Cantidad</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items">
+                    <td>{{item.producto}}</td>
+                    <td>{{item.valorTotal}}</td>
+                    <td>{{item.cantidad}}</td>
+                </tr>
+
+
+            </tbody>
+
+        </table>
+    </div>
+
+
+</div>

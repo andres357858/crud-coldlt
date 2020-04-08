@@ -1,0 +1,13 @@
+com\coldlt\crud\api\serviceImpl\ItemServiceImpl.class
+com\coldlt\crud\api\service\ProductoService.class
+com\coldlt\crud\api\model\Factura.class
+com\coldlt\crud\api\service\FacturaService.class
+com\coldlt\crud\api\main\CrudServiceApplication.class
+com\coldlt\crud\api\service\ItemService.class
+com\coldlt\crud\api\serviceImpl\ProductoServiceImpl.class
+com\coldlt\crud\api\dao\ItemRepository.class
+com\coldlt\crud\api\serviceImpl\FacturaServiceImpl.class
+com\coldlt\crud\api\model\Item.class
+com\coldlt\crud\api\dao\FacturaRepository.class
+com\coldlt\crud\api\dao\ProductoRepository.class
+com\coldlt\crud\api\model\Producto.class
